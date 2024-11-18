@@ -20,7 +20,7 @@ import com.example.recipesgenie.ui.theme.dimens
 fun RecipesScreen(navController: NavHostController?) {
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         Column(modifier = Modifier.padding(innerPadding)) {
-            Text("All recipes", fontSize = MaterialTheme.typography.labelLarge.fontSize, modifier = Modifier.padding(all = MaterialTheme.dimens.sixteen))
+            Text("All recipes", fontSize = MaterialTheme.typography.headlineMedium.fontSize, modifier = Modifier.padding(all = MaterialTheme.dimens.sixteen))
             LazyColumn {
                 items(recipes) { recipe ->
                     RecipeListItem(recipe, onClick = { id ->

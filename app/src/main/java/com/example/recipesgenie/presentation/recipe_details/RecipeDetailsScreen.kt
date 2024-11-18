@@ -59,13 +59,13 @@ fun RecipeDetailsScreen(navController: NavHostController?) {
             Column(
                 Modifier.padding(horizontal = MaterialTheme.dimens.sixteen)
             ) {
-                Text(recipe.value.name, fontSize = MaterialTheme.typography.labelSmall.fontSize, modifier = Modifier.align(Alignment.CenterHorizontally).padding(top = MaterialTheme.dimens.sixteen))
+                Text(recipe.value.name, fontSize = MaterialTheme.typography.headlineMedium.fontSize, modifier = Modifier.align(Alignment.CenterHorizontally).padding(top = MaterialTheme.dimens.sixteen))
                 Spacer(modifier = Modifier.height(MaterialTheme.dimens.twelve))
-                Text("Description:", fontSize = MaterialTheme.typography.labelSmall.fontSize, fontWeight = FontWeight.Bold)
+                Text("Description:", fontSize = MaterialTheme.typography.titleMedium.fontSize, fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(MaterialTheme.dimens.twelve))
                 Text(recipe.value.description)
                 Spacer(modifier = Modifier.height(MaterialTheme.dimens.sixteen))
-                Text("Ingredients:", fontSize = MaterialTheme.typography.labelSmall.fontSize, fontWeight = FontWeight.Bold)
+                Text("Ingredients:", fontSize = MaterialTheme.typography.titleMedium.fontSize, fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(MaterialTheme.dimens.twelve))
                 Column {
                     recipe.value.ingredients.forEach { ingredient ->
@@ -74,7 +74,7 @@ fun RecipeDetailsScreen(navController: NavHostController?) {
                     }
                 }
                 Spacer(modifier = Modifier.height(MaterialTheme.dimens.sixteen))
-                Text("How to prepare:", fontSize = MaterialTheme.typography.labelSmall.fontSize, fontWeight = FontWeight.Bold)
+                Text("How to prepare:", fontSize = MaterialTheme.typography.titleMedium.fontSize, fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(MaterialTheme.dimens.twelve))
                 Column {
                     recipe.value.steps.forEach { step ->
