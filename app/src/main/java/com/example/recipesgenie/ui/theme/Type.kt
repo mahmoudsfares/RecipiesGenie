@@ -6,6 +6,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
 
+// TODO 3: provide different styles for different screen sizes in typography
+
 val CompactSmallTypography = Typography(
     headlineLarge = TextStyle(
         fontWeight = FontWeight.ExtraBold,

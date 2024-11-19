@@ -3,6 +3,8 @@ package com.example.recipesgenie.ui.theme
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+
+// TODO 2: store padding values in a data class
 data class Dimens(
     val eight: Dp = 0.dp,
     val twelve: Dp = 0.dp,

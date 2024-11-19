@@ -18,6 +18,8 @@ import com.example.recipesgenie.data.recipes
 import com.example.recipesgenie.navigation.Navigation
 import com.example.recipesgenie.ui.theme.dimens
 
+
+
 @Composable
 fun RecipesScreen(navController: NavHostController?) {
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
@@ -28,7 +30,9 @@ fun RecipesScreen(navController: NavHostController?) {
         ) {
             Text(
                 "All recipes",
+                // TODO 8: replace all .sp values with the typography dynamic values (through the whole app)
                 fontSize = MaterialTheme.typography.headlineMedium.fontSize,
+                // TODO 9: replace all .dp values with the dimens dynamic values (through the whole app)
                 modifier = Modifier.padding(all = dimens.sixteen)
             )
             LazyColumn (

@@ -51,11 +51,14 @@ fun RecipesGenieTheme(
         else -> LightColorScheme
     }
 
-    val window = calculateWindowSizeClass(activity = activity)
-    val config = LocalConfiguration.current
-
+    // TODO 4: go to theme and create typography & dimens objects
     val typography: Typography
     val appDimens: Dimens
+
+
+    // TODO 5: pass different typography and dimens values depending on the screen type
+    val window = calculateWindowSizeClass(activity = activity)
+    val config = LocalConfiguration.current
 
     when (window.widthSizeClass) {
         WindowWidthSizeClass.Compact -> {
@@ -87,6 +90,7 @@ fun RecipesGenieTheme(
         }
     }
 
+    // TODO 7: wrap MaterialTheme inside the call of ProvidedAppUtils we just created to provide appDimens
     ProvideAppUtils(appDimens = appDimens) {
             MaterialTheme(
                 colorScheme = colorScheme,
