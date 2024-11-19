@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
@@ -53,8 +54,8 @@ fun RecipesGenieTheme(
     val window = calculateWindowSizeClass(activity = activity)
     val config = LocalConfiguration.current
 
-    var typography = CompactTypography
-    var appDimens = CompactDimens
+    val typography: Typography
+    val appDimens: Dimens
 
     when (window.widthSizeClass) {
         WindowWidthSizeClass.Compact -> {
@@ -87,14 +88,14 @@ fun RecipesGenieTheme(
     }
 
     ProvideAppUtils(appDimens = appDimens) {
-        MaterialTheme(
-            colorScheme = colorScheme,
-            typography = typography,
-            content = content
-        )
+            MaterialTheme(
+                colorScheme = colorScheme,
+                typography = typography,
+                content = content
+            )
     }
 }
 
-val MaterialTheme.dimens
+val dimens
     @Composable
     get() = LocalAppDimens.current
