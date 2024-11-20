@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -18,13 +19,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.recipesgenie.data.recipes
+import com.example.recipesgenie.ui.theme.dimens
 
 @Composable
 fun RecipeDetailsScreen(navController: NavHostController?) {
@@ -51,33 +52,67 @@ fun RecipeDetailsScreen(navController: NavHostController?) {
                 contentDescription = null,
                 contentScale = ContentScale.FillBounds,
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .run {
+                        if (LocalConfiguration.current.screenWidthDp <= 360 || LocalConfiguration.current.screenWidthDp > 600) {
+                            fillMaxWidth(0.75f)
+                        } else  {
+                            fillMaxWidth()
+                        }
+                    }
                     .aspectRatio(1f)
+
             )
             Column(
-                Modifier.padding(horizontal = 16.dp)
+                Modifier
+                    .padding(horizontal = dimens.sixteen)
+                    .fillMaxWidth(),
+                horizontalAlignment = Alignment.Start
             ) {
-                Text(recipe.value.name, fontSize = 30.sp, modifier = Modifier.align(Alignment.CenterHorizontally).padding(top = 16.dp))
-                Spacer(modifier = Modifier.height(12.dp))
-                Text("Description:", fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(recipe.value.description)
-                Spacer(modifier = Modifier.height(16.dp))
-                Text("Ingredients:", fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    recipe.value.name,
+                    fontSize = MaterialTheme.typography.headlineLarge.fontSize,
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+                        .padding(top = dimens.sixteen)
+                )
+                Spacer(modifier = Modifier.height(dimens.twelve))
+                Text(
+                    "Description:",
+                    fontSize = MaterialTheme.typography.titleMedium.fontSize,
+                    fontWeight = FontWeight.Bold
+                )
+                Spacer(modifier = Modifier.height(dimens.twelve))
+                Text(
+                    recipe.value.description,
+                    fontSize = MaterialTheme.typography.bodyMedium.fontSize
+                )
+                Spacer(modifier = Modifier.height(dimens.sixteen))
+                Text(
+                    "Ingredients:",
+                    fontSize = MaterialTheme.typography.titleMedium.fontSize,
+                    fontWeight = FontWeight.Bold
+                )
+                Spacer(modifier = Modifier.height(dimens.twelve))
                 Column {
                     recipe.value.ingredients.forEach { ingredient ->
-                        Text("- $ingredient")
-                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(
+                            "- $ingredient",
+                            fontSize = MaterialTheme.typography.bodyMedium.fontSize
+                        )
+                        Spacer(modifier = Modifier.height(dimens.eight))
                     }
                 }
-                Spacer(modifier = Modifier.height(16.dp))
-                Text("How to prepare:", fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(dimens.sixteen))
+                Text(
+                    "How to prepare:",
+                    fontSize = MaterialTheme.typography.titleMedium.fontSize,
+                    fontWeight = FontWeight.Bold
+                )
+                Spacer(modifier = Modifier.height(dimens.twelve))
                 Column {
                     recipe.value.steps.forEach { step ->
-                        Text("- $step")
-                        Spacer(modifier = Modifier.height(4.dp))
+                        Text("- $step", fontSize = MaterialTheme.typography.bodyMedium.fontSize)
+                        Spacer(modifier = Modifier.height(dimens.eight))
                     }
                 }
             }
