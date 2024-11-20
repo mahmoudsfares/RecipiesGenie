@@ -5,10 +5,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -16,11 +14,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.recipesgenie.data.Recipe
 import com.example.recipesgenie.data.recipes
+import com.example.recipesgenie.ui.theme.CompactMediumDimens
+import com.example.recipesgenie.ui.theme.LocalAppDimens
 import com.example.recipesgenie.ui.theme.dimens
 
 @Composable
@@ -31,8 +30,9 @@ fun RecipeListItem(recipe: Recipe, onClick: (Int) -> Unit) {
                 .clickable {
                     onClick(recipe.id)
                 }
+                // TODO 11: control the fraction dimensions by using Modifier.run and checking the device dimensions to determine the suitable fractions (through the whole app)
                 .run {
-                    if (LocalConfiguration.current.screenWidthDp < 600) {
+                    if (LocalAppDimens.current == CompactMediumDimens) {
                         fillMaxWidth()
                     } else {
                         fillMaxWidth(0.75f)

@@ -5,9 +5,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
-
-// TODO 3: provide different styles for different screen sizes in typography
-
+// TODO 3: create typography objects for each screen size by overriding the Typography parameters with the desired TextStyles
+// you don't have to override all the params, just the ones you need to use.. but note that using one that's not overridden will not achieve responsiveness
+// here we just overrode the ones that we need, check the rest in Typography class
 val CompactSmallTypography = Typography(
     headlineLarge = TextStyle(
         fontWeight = FontWeight.ExtraBold,
@@ -46,7 +46,7 @@ val CompactMediumTypography = Typography(
     )
 )
 
-val CompactTypography = Typography(
+val mediumTypography = Typography(
     headlineLarge = TextStyle(
         fontWeight = FontWeight.ExtraBold,
         fontSize = 32.sp

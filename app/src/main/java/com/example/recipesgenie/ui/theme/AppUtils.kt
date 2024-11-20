@@ -6,7 +6,7 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.remember
 
 
-// TODO 6: create a new file with a composable function to provide app dimens to the theme using compositionLocal
+// TODO 6: create a composable function to provide app dimens to the theme using compositionLocal
 @Composable
 fun ProvideAppUtils(
     appDimens: Dimens,
@@ -20,5 +20,5 @@ fun ProvideAppUtils(
 
 // this is used when you want your value to be accessed by more than one composable function
 val LocalAppDimens = compositionLocalOf {
-    CompactDimens
+    MediumDimens
 }

@@ -3,8 +3,10 @@ package com.example.recipesgenie.ui.theme
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
-
-// TODO 2: store padding values in a data class
+// TODO 2: create a data class called dimens.. add default zero values for the used .dp dimensions
+// for example, if you're using 16.dp somewhere, replace it with dimens.sixteen
+// after overriding that sixteen in each device size dimens object as follows
+// TIP: make sixteen = 16.dp for the medium/average screen sizes.. increase it for larger devices and reduce it for smaller ones
 data class Dimens(
     val eight: Dp = 0.dp,
     val twelve: Dp = 0.dp,
@@ -13,8 +15,8 @@ data class Dimens(
     val thirtyTwo: Dp = 0.dp,
     val fortyEight: Dp = 0.dp,
     val sixtyFour: Dp = 0.dp,
-    val buttonHeight: Dp = 32.dp,
-    val logoSize: Dp = 48.dp,
+    val buttonHeight: Dp = 0.dp,
+    val logoSize: Dp = 0.dp,
 )
 
 val CompactSmallDimens = Dimens(
@@ -39,18 +41,6 @@ val CompactMediumDimens = Dimens(
     sixtyFour = 64.dp,
     buttonHeight = 32.dp,
     logoSize = 48.dp,
-)
-
-val CompactDimens = Dimens(
-    eight = 10.dp,
-    twelve = 14.dp,
-    sixteen = 18.dp,
-    twentyFour = 28.dp,
-    thirtyTwo = 36.dp,
-    fortyEight = 52.dp,
-    sixtyFour = 72.dp,
-    buttonHeight = 36.dp,
-    logoSize = 52.dp,
 )
 
 val MediumDimens = Dimens(

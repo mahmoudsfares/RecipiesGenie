@@ -51,12 +51,14 @@ fun RecipesGenieTheme(
         else -> LightColorScheme
     }
 
-    // TODO 4: go to theme and create typography & dimens objects
+    // TODO 4: create typography & dimens objects
     val typography: Typography
     val appDimens: Dimens
 
 
-    // TODO 5: pass different typography and dimens values depending on the screen type
+    // TODO 5: assign values to the typography and dimens according to the current screen size
+    // note that the size category differs if the device orientation is changed
+    // TIP: add debug break points here to check the category of your device
     val window = calculateWindowSizeClass(activity = activity)
     val config = LocalConfiguration.current
 
@@ -69,14 +71,14 @@ fun RecipesGenieTheme(
                 appDimens = CompactMediumDimens
                 typography = CompactMediumTypography
             } else {
-                appDimens = CompactDimens
-                typography = CompactTypography
+                appDimens = MediumDimens
+                typography = mediumTypography
             }
         }
 
         WindowWidthSizeClass.Medium -> {
             appDimens = MediumDimens
-            typography = CompactTypography
+            typography = mediumTypography
         }
 
         WindowWidthSizeClass.Expanded -> {
@@ -85,12 +87,12 @@ fun RecipesGenieTheme(
         }
 
         else -> {
-            appDimens = ExpandedDimens
-            typography = ExpandedTypography
+            appDimens = CompactMediumDimens
+            typography = CompactMediumTypography
         }
     }
 
-    // TODO 7: wrap MaterialTheme inside the call of ProvidedAppUtils we just created to provide appDimens
+    // TODO 7: wrap MaterialTheme inside the call of ProvidedAppUtils -the method created in step 6- to provide appDimens to the theme
     ProvideAppUtils(appDimens = appDimens) {
             MaterialTheme(
                 colorScheme = colorScheme,
@@ -100,6 +102,7 @@ fun RecipesGenieTheme(
     }
 }
 
+// TODO 8: create a dimens composable getter to access it by the composables
 val dimens
     @Composable
     get() = LocalAppDimens.current
