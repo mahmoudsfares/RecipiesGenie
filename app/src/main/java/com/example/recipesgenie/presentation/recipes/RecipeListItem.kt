@@ -30,14 +30,14 @@ fun RecipeListItem(recipe: Recipe, onClick: (Int) -> Unit) {
                 .clickable {
                     onClick(recipe.id)
                 }
-                // TODO 11: control the fraction dimensions by using Modifier.run and checking the device dimensions to determine the suitable fractions (through the whole app)
-                .run {
+                // TODO 11: control the fraction dimensions according to device dimensions (through the whole app)
+                .fillMaxWidth(
                     if (LocalAppDimens.current == CompactMediumDimens) {
-                        fillMaxWidth()
+                        1f
                     } else {
-                        fillMaxWidth(0.75f)
+                        0.75f
                     }
-                }
+                )
             ) {
                 Text(
                     text = recipe.name,

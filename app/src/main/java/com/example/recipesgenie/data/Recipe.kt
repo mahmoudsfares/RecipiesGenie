@@ -65,35 +65,4 @@ val recipes: List<Recipe> = listOf(
             "Serve hot and decorate with the parsley",
         )
     ),
-    Recipe(
-        id = 2,
-        name = "alfredo white sauce pasta",
-        imageResource = R.drawable.chicken_mustard,
-        description = "Sauteed chicken breasts cooked with honey and mustard",
-        ingredients = listOf(
-            "4 chicken breasts without bones or skin",
-            "1 teaspoon of salt",
-            "1/2 teaspoon of black pepper",
-            "2 tablespoons of butter",
-            "3 cloves of minced garlic",
-            "1 teaspoon of paprica",
-            "1 teaspoon garlic powder",
-            "1 teaspoon onion powder",
-            "3 tablespoons of mustard",
-            "1 lemon juice",
-            "1 tablespoon of parsley",
-        ),
-        steps = listOf(
-            "Season the breasts with salt and black pepper",
-            "Put the butter to melt in the pan over medium heat",
-            "Put the chicken in the pan for 5-7 minutes for each side till it's gold then put it aside",
-            "In the same pan, add the garlic and stir for 1-2 minutes till you can smell it",
-            "Add the honey, mustard and lemon juice and stir well",
-            "Cook on low heat for 2-3 minutes",
-            "Get the chicken back in the pan and cover it with the sauce",
-            "Cook the mix for 2-3 minutes",
-            "Serve hot and decorate with the parsley",
-        )
-    ),
-
 )

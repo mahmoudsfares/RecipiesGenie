@@ -19,12 +19,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import com.example.recipesgenie.data.recipes
+import com.example.recipesgenie.ui.theme.CompactMediumDimens
+import com.example.recipesgenie.ui.theme.LocalAppDimens
 import com.example.recipesgenie.ui.theme.dimens
 
 @Composable
@@ -51,16 +52,13 @@ fun RecipeDetailsScreen(navController: NavHostController?) {
                 painter = painterResource(recipe.value.imageResource),
                 contentDescription = null,
                 contentScale = ContentScale.FillBounds,
-                modifier = Modifier
-                    .run {
-                        if (LocalConfiguration.current.screenWidthDp <= 360 || LocalConfiguration.current.screenWidthDp > 600) {
-                            fillMaxWidth(0.75f)
-                        } else  {
-                            fillMaxWidth()
-                        }
+                modifier = Modifier.fillMaxWidth(
+                    if (LocalAppDimens.current == CompactMediumDimens) {
+                        1f
+                    } else  {
+                        0.75f
                     }
-                    .aspectRatio(1f)
-
+                ).aspectRatio(1f)
             )
             Column(
                 Modifier
